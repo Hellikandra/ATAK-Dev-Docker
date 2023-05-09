@@ -53,15 +53,15 @@ RUN ./sdkmanager --sdk_root="/home/androiddev/Android/sdk" "build-tools;30.0.2" 
 # -----------   -------
 # modify by sdk from TAK.gov
 WORKDIR /home/androiddev/atak
-COPY --chown=androiddev:root ATAK_CIV_4.8.1.5_SDK_475f848f.zip ./
-RUN unzip ATAK_CIV_4.8.1.5_SDK_475f848f.zip
-RUN mv atak-civ-master atak-civ-4.8.1.5
-RUN rm ATAK_CIV_4.8.1.5_SDK_475f848f.zip
+COPY --chown=androiddev:root ATAK_CIV_4.8.1.16_SDK.zip ./
+RUN unzip ATAK_CIV_4.8.1.16_SDK.zip
+RUN mv atak-civ-master atak-civ
+RUN rm ATAK_CIV_4.8.1.16_SDK.zip
 
-WORKDIR /home/androiddev/atak/atak-civ-4.8.1.5
+WORKDIR /home/androiddev/atak/atak-civ
 COPY --chown=androiddev:root local.properties ./
 COPY --chown=androiddev:root atak-config.sh ./
-# RUN /bin/bash ./atak-config.sh
+# RUN /bin/bash ./atak-config.sh -- launch in the docker
 RUN mkdir plugins
 
 # ----- #
