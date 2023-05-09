@@ -6,7 +6,7 @@ This repository is created to support the possibility to set an Linux-like Andro
 
 | ATAK Dev | zip location |
 |--- | --- |
-| ATAK - 4.6.0 | [Github - release](https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV/releases/download/4.6.0.5/atak-civ-sdk-4.6.0.5.zip) |
+| ATAK - 4.6.0.5 | [Github - release](https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV/releases/download/4.6.0.5/atak-civ-sdk-4.6.0.5.zip) |
 | ATAK - 4.7.0.3 | [TAK.gov](https://tak.gov/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcEFuIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b2f99f60cf208fcb0c001c9ddda4cd46a57e9616/ATAK-CIV-4.7.0.3-SDK.zip)
 | ATAK - 4.8.1.16 | [TAK.gov](https://tak.gov/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdmhSIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4074e8845344c8e322b37b25ec63ba6e2ec3a58c/ATAK_CIV_4.8.1.16_SDK.zip)
 | ATAK - 4.9.0.2 | [TAK.gov](https://tak.gov/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdnMrIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9bf6e3127e708122318c37b3826caf214a89d45f/ATAK_CIV_4.9.0_SDK_5530E38.zip)
