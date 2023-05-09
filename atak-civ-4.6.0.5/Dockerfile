@@ -60,8 +60,16 @@ RUN rm atak-civ-sdk-4.6.0.5.zip
 WORKDIR /home/androiddev/atak/atak-civ
 COPY --chown=androiddev:root local.properties /home/androiddev/atak/atak-civ/
 COPY --chown=androiddev:root atak-config.sh /home/androiddev/atak/atak-civ/
-# RUN /bin/bash ./atak-config.sh -- launch in the docker
+
+
 RUN mkdir plugins
+ADD ./plugins ./plugins
+
+USER root
+RUN chown -R androiddev:root ./plugins
+USER androiddev
+RUN /bin/bash ./atak-config.sh -- launch in the docker
+
 
 # ----- #
 # start #

@@ -31,7 +31,7 @@ create or move  the folder `plugins` present in each directory where your plugin
 ### Set up container
 
 ```console
-docker run -it -v <path_to_folder>\plugins:/home/androiddev/atak/atak-civ-<version>/plugins -t <image_name>
+docker run -it -t <image_name>
 ```
 
 The `docker run` command will create the container by attaching the volume defined in local to the subdirectory in the atak release you define.
