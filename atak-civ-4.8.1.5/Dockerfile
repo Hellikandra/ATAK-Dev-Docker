@@ -49,18 +49,19 @@ RUN ./sdkmanager --sdk_root="/home/androiddev/Android/sdk" "build-tools;30.0.2" 
 # ------------ #
 # install atak #
 # ------------ #
-# source code : https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV/archive/refs/tags/4.6.0.5.zip
-# -----------   --------------------------------------------------------------------------------------------
+# source code : tak.gov
+# -----------   -------
 # modify by sdk from TAK.gov
 WORKDIR /home/androiddev/atak
-RUN wget https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV/releases/download/4.6.0.5/atak-civ-sdk-4.6.0.5.zip
-RUN unzip atak-civ-sdk-4.6.0.5.zip -d /home/androiddev/atak
-RUN rm atak-civ-sdk-4.6.0.5.zip
+COPY --chown=androiddev:root ATAK_CIV_4.8.1.5_SDK_475f848f.zip ./
+RUN unzip ATAK_CIV_4.8.1.5_SDK_475f848f.zip
+RUN mv atak-civ-master atak-civ-4.8.1.5
+RUN rm ATAK_CIV_4.8.1.5_SDK_475f848f.zip
 
-WORKDIR /home/androiddev/atak/atak-civ
-COPY --chown=androiddev:root local.properties /home/androiddev/atak/atak-civ/
-COPY --chown=androiddev:root atak-config.sh /home/androiddev/atak/atak-civ/
-RUN /bin/bash ./atak-config.sh
+WORKDIR /home/androiddev/atak/atak-civ-4.8.1.5
+COPY --chown=androiddev:root local.properties ./
+COPY --chown=androiddev:root atak-config.sh ./
+# RUN /bin/bash ./atak-config.sh
 RUN mkdir plugins
 
 # ----- #
