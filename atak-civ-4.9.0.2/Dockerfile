@@ -44,7 +44,7 @@ RUN unzip -q commandlinetools-linux-9477386_latest.zip
 RUN rm commandlinetools-linux-9477386_latest.zip
 WORKDIR /home/androiddev/Android/sdk/cmdline-tools/bin
 RUN yes | ./sdkmanager --sdk_root="/home/androiddev/Android/sdk" --licenses
-RUN ./sdkmanager --sdk_root="/home/androiddev/Android/sdk" "build-tools;30.0.2" "platforms;android-26" "platform-tools"
+RUN ./sdkmanager --sdk_root="/home/androiddev/Android/sdk" "build-tools;30.0.2" "platforms;android-30" "platform-tools"
 
 # ------------ #
 # install atak #
