@@ -53,10 +53,10 @@ RUN ./sdkmanager --sdk_root="/home/androiddev/Android/sdk" "build-tools;30.0.2" 
 # -----------   -------
 # modify by sdk from TAK.gov
 WORKDIR /home/androiddev/atak
-COPY --chown=androiddev:root ATAK_CIV_4.9.0_SDK_5530E38.zip ./
-RUN unzip ATAK_CIV_4.9.0_SDK_5530E38.zip
+COPY --chown=androiddev:root ATAK_CIV_4.9_SDK.zip ./
+RUN unzip ATAK_CIV_4.9_SDK.zip
 RUN mv atak-civ-master atak-civ
-RUN rm ATAK_CIV_4.9.0_SDK_5530E38.zip
+RUN rm ATAK_CIV_4.9_SDK.zip
 
 WORKDIR /home/androiddev/atak/atak-civ
 COPY --chown=androiddev:root local.properties ./
