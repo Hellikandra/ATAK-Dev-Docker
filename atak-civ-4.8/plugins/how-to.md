@@ -1,1 +1,0 @@
-Folder where plugins are.

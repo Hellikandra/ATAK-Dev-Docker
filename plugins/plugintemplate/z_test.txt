@@ -1,0 +1,4 @@
+we do a test with a z file txt
+here is the test from the docker
+ls
+

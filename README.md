@@ -1,5 +1,7 @@
 # ATAK-Dev-Docker
 
+!! Major update of the repository.
+
 This repository is created to support the possibility to set an Linux-like Android Development environment to compile ATAK (Android Tactical Awareness Kit) plugins for specific version.
 
 ## Folders
@@ -7,44 +9,77 @@ This repository is created to support the possibility to set an Linux-like Andro
 | ATAK Dev | zip location |
 |--- | --- |
 | ATAK - 4.6.0.5 | [Github - release](https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV/releases/download/4.6.0.5/atak-civ-sdk-4.6.0.5.zip) |
-| ATAK - 4.7 | [TAK.gov](https://tak.gov/products/atak-civ?product_version=atak-civ-4-7-0)
-| ATAK - 4.8 | [TAK.gov](https://tak.gov/products/atak-civ?product_version=atak-civ-4-8-1)
-| ATAK - 4.9 | [TAK.gov](https://tak.gov/products/atak-civ?product_version=atak-civ-4-9-0)
-| ATAK - 4.10 | [TAK.gov](https://tak.gov/products/atak-civ?product_version=atak-civ-4-10-0)
+| ATAK - 4.9.0 | [TAK.gov](https://tak.gov/products/atak-civ?product_version=atak-civ-4-9-0)
+| ATAK - 4.10.0 | [TAK.gov](https://tak.gov/products/atak-civ?product_version=atak-civ-4-10-0)
+| ATAK - 5.0.0 | [TAK.gov](https://tak.gov/products/atak-civ?product_version=atak-civ-5-0-0)
 
-!! New version from 06 July 2023. After downloading the version of ATAK you want from tak.gov, the name of the file need to be changed to ATAK-CIV-x.x_SDK.zip where X.X is the version of ATAK.
+~~New version from 06 July 2023. After downloading the version of ATAK you want from tak.gov, the name of the file need to be changed to ATAK-CIV-x.x_SDK.zip where X.X is the version of ATAK.~~
+
+The new implementation require you to set the file name in the Dockerfile. For example, you can check `atakconfiguration.cfg`
+
+## Environment configuration
+| ATAK version | Java Version | Gradle | Android Gradle | Android SDK | Android NDK | CMAKE |
+| --- | --- | --- | --- | --- | --- | --- |
+| 4.6 | 11 | 6.9.1 | 4.2.2 | 26 | 12b
+| 4.7 | 11 | | | | 12b |
+| 4.8 | 11 | | | | 12b |
+| 4.9 | 11 | 7.5.1 | 4.2.2 | 26 | 25b |
+| 4.10 | 11 | 7.6.1 | | | 25b | |
+| 5.0 | 11 | 7.6.x | 7.4.2 | 30 | 25b | |
 
 ## Who to create your image and container
+Fork / Clone / Download this repository. 
 
-Fork or clone the repository.
+### Configure the docker file
+Before launching `docker build`, ensure that the `ENV` variables in the Dockerfile are correctly set.
 
+| Variables Name | Description | example |
+| --- | --- | --- |
+| username | the name of the user | atakdev
+| cmake_release_version | version of cmake which also corresponding to the extracted folder name| cmake-3.26.0-linux-x86_64 |
+| cmake_release_link | web link where CMAKE is located | https://cmake.org/files/v3.26/${cmake_release_version}.tar.gz |
+| ndk_release_version | version of the NDK | android-ndk-r12b-linux-x86_64.zip 
+| sdk_release_version | Android Command Line for Linux|
+| sdk_manager_build_tools | version of the build tools | commandlinetools-linux-9477386_latest.zip |
+| sdk_manager_platforms | Version of Android |
+| atak_release_version | zip filename of the ATAK SDK|
+| atak_extract_foldername | folder name inside of the ATAK SDK |
 ### Set up image
-Ensure that you have docker on your machine .Go to the folder where the `Dockerfile` is and launch the command :
+Ensure that you have installed docker on your machine and **started**. Go to the folder where the `Dockerfile` is and launch the command :
 
 ```console
 docker build -t <image_name> .
 ```
+To clearly identify on which Docker you will be, the `<image_name>` can be set like this :
+* atak-civ-sdk-4.7
+* atak-civ-sdk-4.8
+* ...
 
 The image take time to be created due to download of some part of the minimum required tools.
 
 ### Set up plugins folder
 
-create or move  the folder `plugins` present in each directory where your plugins are. By default `plugins` folder have the `plugintemplate`.
+~~create or move  the folder `plugins` present in each directory where your plugins are. By default `plugins` folder have the `plugintemplate`.~~
+
+To set up your plugins folder, make sure that you have located where is it in your machine.
 
 ### Set up container
+This command is changed to include the plugins folder
 
 ```console
-docker run -it -t <image_name>
+docker run -ti -v <path_of_plugins_folder>:/home/username/atak-civ/plugins <image_name>
 ```
+To ensure that the previous line works, you need to take into account : 
+- path of the folder where your(s) plugin(s) is(are).
+- change username by the one you have choose in the Dockerfile (by default : `atakdev`)
+- `<image_name>` the value you set on the `docker build ...`
 
-The `docker run` command will create the container by attaching the volume defined in local to the subdirectory in the atak release you define.
 
-### Final test
+### Final test - TO REWORK
 In the docker environment you can test if the environment is correctly set by launching :
 
 ```console
 ./gradlew assembleCivDebug
 ./gradlew assembleCivRelease
  ```
-
-# Content of Dockerfile
+### Test your plugin - TO DO
