@@ -12,9 +12,14 @@ ENV username atakdev
 ENV cmake_release_version cmake-3.26.0-linux-x86_64
 ENV cmake_release_link https://cmake.org/files/v3.26/${cmake_release_version}.tar.gz
 
-ENV ndk_release_version android-ndk-r12b-linux-x86_64.zip 
+ENV ndk_release_version android-ndk-r12b-linux-x86_64.zip
+ENV ndk_release_dl_link https://dl.google.com/android/repository/${ndk_release_version}
+ENV ndk_release_folder android-ndk-r12b
 
-ENV sdk_release_version commandlinetools-linux-10406996_latest.zip
+# keep an older version of commandlinetools due to Java version issues
+# Current version is : commandlinetools-linux-10406996_latest.zip
+# Old version is : commandlinetools-linux-9477386_latest.zip
+ENV sdk_release_version commandlinetools-linux-9477386_latest.zip
 ENV sdk_manager_build_tools "build-tools;30.0.2"
 ENV sdk_manager_platforms "platforms;android-26"
 
@@ -66,6 +71,7 @@ RUN apt-get update -y && apt-get install -yq \
 # add user ------------------------------------------------------------------ #
 # --- ---- ------------------------------------------------------------------ #
 RUN useradd -rm -d /home/${username} -s /bin/bash -g root -G sudo -u 1001 ${username}
+RUN echo "${username}:atakatak" | chpasswd
 USER ${username}
 
 
@@ -82,8 +88,9 @@ RUN rm ${cmake_release_version}.tar.gz
 # ------- ------ ----- ------------------------------------------------------ #
 # NDK installation ---------------------------------------------------------- #
 WORKDIR /home/${username}/Android
-RUN wget https://dl.google.com/android/repository/${ndk_release_version}
+RUN wget ${ndk_release_dl_link}
 RUN unzip -q ${ndk_release_version}
+RUN mv ${ndk_release_folder} ndk
 RUN rm ${ndk_release_version}
 
 # SDK installation ---------------------------------------------------------- #
@@ -110,7 +117,6 @@ RUN rm ${atak_release_version}
 # ATAK folder configuration ------------------------------------------------- #
 # ---- ------ ------------- ------------------------------------------------- #
 WORKDIR /home/${username}/atak-civ
-COPY --chown=${username}:root local.properties ./
 COPY --chown=${username}:root atak-config.sh ./
 
 
@@ -121,6 +127,7 @@ ADD ./plugins ./plugins
 USER root
 RUN chown -R ${username}:root ./plugins
 USER ${username}
+# intentionally left blank to ensure that no error appears during the build.
 RUN /bin/bash ./atak-config.sh
 
 
