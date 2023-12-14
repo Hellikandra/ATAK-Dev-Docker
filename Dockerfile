@@ -5,6 +5,7 @@ FROM openjdk:11
 
 
 # Set environmental variables ----------------------------------------------- #
+# refer to the table on https://github.com/Hellikandra/ATAK-Dev-Docker        #
 # --- ------------- --------- ----------------------------------------------- #
 ENV username atakdev
 
@@ -13,11 +14,11 @@ ENV cmake_release_link https://cmake.org/files/v3.26/${cmake_release_version}.ta
 
 ENV ndk_release_version android-ndk-r12b-linux-x86_64.zip 
 
-ENV sdk_release_version commandlinetools-linux-9477386_latest.zip
+ENV sdk_release_version commandlinetools-linux-10406996_latest.zip
 ENV sdk_manager_build_tools "build-tools;30.0.2"
 ENV sdk_manager_platforms "platforms;android-26"
 
-ENV atak_release_version ATAK-CIV-4.7_SDK.zip
+ENV atak_release_version atak-civ-sdk.zip
 ENV atak_extract_foldername ATAK-CIV-4.7.0.3-SDK
 
 # Set root for installation and configuration ------------------------------- #
