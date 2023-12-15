@@ -100,7 +100,7 @@ RUN unzip -q ${sdk_release_version}
 RUN rm ${sdk_release_version}
 WORKDIR /home/${username}/Android/sdk/cmdline-tools/bin
 RUN yes | ./sdkmanager --sdk_root="/home/${username}/Android/sdk" --licenses
-RUN ./sdkmanager --sdk_root="/home/${username}/Android/sdk" "build-tools;30.0.2" "platforms;android-26" "platform-tools"
+RUN ./sdkmanager --sdk_root="/home/${username}/Android/sdk" ${sdk_manager_build_tools} ${sdk_manager_platforms} "platform-tools"
 
 
 # ATAK installation --------------------------------------------------------- #
@@ -139,4 +139,4 @@ CMD ["bash"]
 # command line -------------------------------------------------------------- #
 # ------- ---- -------------------------------------------------------------- #
 # docker build -t <name> .
-# docker run -it -t <name>
+# docker run -ti -v <path_of_plugins_folder>:/home/username/atak-civ/plugins <name>
