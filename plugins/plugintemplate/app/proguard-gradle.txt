@@ -8,7 +8,7 @@
 -keepattributes SourceFile,LineNumberTable
 
 -applymapping <atak.proguard.mapping>
--repackageclasses atakplugin.helloworld
+-repackageclasses atakplugin.PluginTemplate
 
 -keepattributes *Annotation*
 -keepattributes Signature, InnerClasses
@@ -50,7 +50,6 @@
 
 -keep class * extends transapps.maps.plugin.tool.Tool {
 }
--keep class * implements gov.tak.api.plugin.IPlugin {
+-keep class * implements transapps.maps.plugin.lifecycle.Lifecycle {
 }
 
--dontwarn androidx.**

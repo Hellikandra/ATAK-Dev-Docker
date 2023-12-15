@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    
     <!-- font size big enough for most things; MGRS coordinate, etc, so at least ~18 characters of MGRS in a typical dropdown width -->
-    <dimen name="fontSize">14sp</dimen>
-
-    <!-- font size that can fit longer text strings, like lat-lon on the nineline screen, which can easily get up to ~26 characters
+    <dimen name="fontSize">14sp</dimen>        
+    
+    <!-- font size that can fit longer text strings, like lat-lon on the nineline screen, which can easily get up to ~26 characters 
          optimally, fields using this value should be auto-resizing text to fit, since it's important that it all show, but in general
          this value should suffice -->
 
