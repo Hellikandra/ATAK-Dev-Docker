@@ -1,4 +1,5 @@
-
-atak-civ-sdk.zip
+/plugins/plugintemplate
+/plugins/plugintemplate_old
+/plugins/plugintemplateLegacy
 *.jks
 *.properties

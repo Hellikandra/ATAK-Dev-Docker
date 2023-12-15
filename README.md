@@ -16,14 +16,14 @@ The new implementation require you to set the file name in the Dockerfile. For e
 
 
 ## Environment configuration
-| ATAK version | Java Version | Gradle | Android Gradle | Android SDK | Android NDK | CMAKE |
-| --- | --- | --- | --- | --- | --- | --- |
-| 4.6 | 11 | 6.9.1 | 4.2.2 | 26 | 12b
-| 4.7 | 11 | | | | 12b |
-| 4.8 | 11 | | | | 12b |
-| 4.9 | 11 | 7.5.1 | 4.2.2 | 26 | 25b |
-| 4.10 | 11 | 7.6.1 | | | 25b | |
-| 5.0 | 11 | 7.6.x | 7.4.2 | 30 | 25b | |
+| ATAK version | Java Version | Kotlin Version | Gradle | Android Gradle | Android SDK | Android NDK | CMAKE |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 4.6  | 11 | x.x.xx | 6.9.1 | 4.2.2 | 30 | 12b | x.xx |
+| 4.7  | 11 | 1.5.31 | 6.9.1 | 4.2.2 | 33 | 12b | x.xx |
+| 4.8  | 11 | 1.6.21 | x.x.x | 4.2.2 | 33 | 12b | x.xx |
+| 4.9  | 11 | 1.6.21 | 7.5.1 | 7.2.2 | 33 | 25b | x.xx |
+| 4.10 | 11 | 1.8.10 | 7.6.1 | 7.2.2 | 33 | 25b | x.xx |
+| 5.0  | 11 | 1.8.10 | 7.6.1 | 7.4.2 | 33 | 25b | x.xx |
 
 
 ## Who to create your image and container
