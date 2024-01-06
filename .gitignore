@@ -3,4 +3,5 @@
 /plugins/plugintemplateLegacy
 *.jks
 *.properties
+*.resources
 atak-civ-sdk.zip
