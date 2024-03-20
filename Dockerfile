@@ -12,19 +12,19 @@ ENV username atakdev
 ENV cmake_release_version cmake-3.26.0-linux-x86_64
 ENV cmake_release_link https://cmake.org/files/v3.26/${cmake_release_version}.tar.gz
 
-ENV ndk_release_version android-ndk-r12b-linux-x86_64.zip
+ENV ndk_release_version android-ndk-r25b-linux.zip
 ENV ndk_release_dl_link https://dl.google.com/android/repository/${ndk_release_version}
-ENV ndk_release_folder android-ndk-r12b
+ENV ndk_release_folder android-ndk-r25b
 
 # keep an older version of commandlinetools due to Java version issues
 # Current version is : commandlinetools-linux-10406996_latest.zip
 # Old version is : commandlinetools-linux-9477386_latest.zip
 ENV sdk_release_version commandlinetools-linux-9477386_latest.zip
 ENV sdk_manager_build_tools "build-tools;30.0.2"
-ENV sdk_manager_platforms "platforms;android-26"
+ENV sdk_manager_platforms "platforms;android-30"
 
-ENV atak_release_version atak-civ-sdk.zip
-ENV atak_extract_foldername ATAK-CIV-4.7.0.3-SDK
+ENV atak_release_version ATAK-CIV-5.0.0.18-SDK.zip
+ENV atak_extract_foldername ATAK-CIV-5.0.0.18-SDK
 
 # Set root for installation and configuration ------------------------------- #
 # --- ---- --- ------------ --- ------------- ------------------------------- # 
@@ -139,4 +139,4 @@ CMD ["bash"]
 # command line -------------------------------------------------------------- #
 # ------- ---- -------------------------------------------------------------- #
 # docker build -t <name> .
-# docker run -ti -v <path_of_plugins_folder>:/home/username/atak-civ/plugins <name>
+# docker run -ti -v <path_of_plugins_folder>:/home/username/atak-civ/plugins <name> --name <container_name> --bind 127.0.0.1 --port 5555
